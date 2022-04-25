@@ -6,6 +6,7 @@ import tech.getarrays.employeemanager.exception.UserNotFoundException;
 import tech.getarrays.employeemanager.model.Employee;
 import tech.getarrays.employeemanager.repo.EmployeeRepo;
 
+import javax.transaction.Transactional;
 import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.List;
 import java.util.UUID;
@@ -37,6 +38,7 @@ public class EmployeeService {
                 .orElseThrow(() -> new UserNotFoundException("User by id" + id + " was not found"));
     }
 
+    //@Transactional
     public void deleteEmployee(Long id){
         employeeRepo.deleteEmployeeById(id);
     }
